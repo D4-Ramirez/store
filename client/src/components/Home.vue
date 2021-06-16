@@ -1,13 +1,17 @@
 <template>
-  <p>Hello World</p>
+  <div>
+    <p>likes</p>
+  </div>
 </template>
 
 <script>
-  export default {
-    name: "Home",
-  };
+export default {
+  data() {
+    return {
+      likes: 0,
+    };
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
