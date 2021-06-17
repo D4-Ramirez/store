@@ -1,6 +1,12 @@
 <template>
-  <div>
-    <p>likes</p>
+  <div id="main">
+    <p v-if="likes > 0">There are {{ likes }} likes 👍🏽</p>
+    <p v-else>
+      There are no likes 😭
+    </p>
+    <button v-on:click="addLike()">
+      Like 👍🏽
+    </button>
   </div>
 </template>
 
@@ -10,6 +16,12 @@ export default {
     return {
       likes: 0,
     };
+  },
+  methods: {
+    addLike() {
+      this.likes++;
+      console.log("Thanks");
+    },
   },
 };
 </script>
