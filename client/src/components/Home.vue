@@ -1,28 +1,27 @@
 <template>
-  <div id="main">
-    <p v-if="likes > 0">There are {{ likes }} likes 👍🏽</p>
-    <p v-else>
-      There are no likes 😭
-    </p>
-    <button v-on:click="addLike()">
-      Like 👍🏽
-    </button>
+  <div id="home">
+    <div v-for="user in users" v-bind:key="user">
+      Name: {{ user.name }}; Last Name: {{ user.last_name }}
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      likes: 0,
+      users: [
+        { name: "David", last_name: "Ramírez" },
+        { name: "Carolina", last_name: "Molina" },
+        { name: "Luis", last_name: "Rosales" },
+      ],
     };
   },
-  methods: {
-    addLike() {
-      this.likes++;
-      console.log("Thanks");
-    },
-  },
+  mounted() {
+    
+  }
 };
 </script>
 
