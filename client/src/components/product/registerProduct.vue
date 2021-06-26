@@ -17,8 +17,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   name: "addProduct",
   data() {
@@ -31,11 +29,7 @@ export default {
     };
   },
   methods: {
-    addProduct() {
-      axios
-        .post("http://192.168.79.35:3000/products", this.product)
-        .then((result) => console.log(result.data));
-    },
+    addProduct() {},
   },
 };
 </script>
