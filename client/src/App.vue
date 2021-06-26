@@ -5,13 +5,12 @@
 </template>
 
 <script>
-import addProduct from "./components/product/addProduct.vue";
-
+import addProduct from "./components/product/registerProduct.vue";
 export default {
   name: "App",
   el: "#app",
   components: {
-    addProduct
+    addProduct,
   },
 };
 </script>
