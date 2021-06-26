@@ -1,28 +1,29 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const app = express();
+import express from "express";
+import { graphqlHTTP } from "express-graphql";
+import cors from "cors";
+import product from "./models/product/gql_schema/schema";
+import { connect } from "./db/database";
 
-mongoose
-  .connect("mongodb://localhost/store-database", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then((db) => console.log("DB connected"))
-  .catch((err) => console.error(err));
+const app = express();
+connect();
 
 //Settings
 app.set("port", process.env.PORT || 3000);
 
 //Middlewares
-app.use(express.json());
 app.use(cors());
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    graphiql: true,
+    schema: product,
+  })
+);
 
 //Routes
-app.use(require("./routes/products"));
 
 //Static files
-app.use(express.static(__dirname + "/public"));
+// // app.use(express.static(__dirname + "/public"));
 
 //Server is listening
 app.listen(app.get("port"), () => {
