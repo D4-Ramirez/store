@@ -1,8 +1,8 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import cors from "cors";
-import product from "./models/product/gql_schema/schema";
-import { connect } from "./db/database";
+import product from "./api/graphql/product/schema";
+import { connect } from "./config/databaseConfig";
 
 const app = express();
 connect();
@@ -19,11 +19,6 @@ app.use(
     schema: product,
   })
 );
-
-//Routes
-
-//Static files
-// // app.use(express.static(__dirname + "/public"));
 
 //Server is listening
 app.listen(app.get("port"), () => {

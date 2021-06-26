@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "babel -d dist --source-maps",
-    "start": "nodemon index.js --exec babel-node",
-    "serve": "node index.js"
+    "start": "nodemon ./src/index.js --exec babel-node",
+    "serve": "node ./src/index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
