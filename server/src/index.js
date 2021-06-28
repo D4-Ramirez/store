@@ -1,26 +1,13 @@
-import express from "express";
-import { graphqlHTTP } from "express-graphql";
-import cors from "cors";
-import product from "./api/graphql/product/schema";
 import { connect } from "./config/databaseConfig";
+import { ApolloServer } from "apollo-server";
+import { typeDefs } from "./api/graphql/product/schema";
+import { resolvers } from "./api/graphql/product/resolvers";
 
-const app = express();
 connect();
 
-//Settings
-app.set("port", process.env.PORT || 3000);
-
-//Middlewares
-app.use(cors());
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    graphiql: true,
-    schema: product,
-  })
-);
-
 //Server is listening
-app.listen(app.get("port"), () => {
-  console.log("Running on port", app.get("port"));
+const server = new ApolloServer({ typeDefs, resolvers });
+
+server.listen().then(({ url }) => {
+  console.log(`🚀 Server running at ${url}`);
 });

@@ -1,16 +1,18 @@
 <template>
-  <div id="app">
-    <add-product />
+  <div>
+    <getAllProducts />
   </div>
 </template>
 
 <script>
-import addProduct from "./components/product/registerProduct.vue";
+// import registerProduct from "./components/product/registerProduct.vue";
+import getAllProducts from "./components/product/getAllProducts.vue";
+
 export default {
   name: "App",
-  el: "#app",
   components: {
-    addProduct,
+    // registerProduct
+    getAllProducts,
   },
 };
 </script>
