@@ -1,24 +1,25 @@
 <template>
-  <div>
+  <div class="app">
     <getAllProducts />
+    <registerProduct />
   </div>
 </template>
 
 <script>
-// import registerProduct from "./components/product/registerProduct.vue";
+import registerProduct from "./components/product/registerProduct.vue";
 import getAllProducts from "./components/product/getAllProducts.vue";
 
 export default {
   name: "App",
   components: {
-    // registerProduct
+    registerProduct,
     getAllProducts,
   },
 };
 </script>
 
 <style>
-#app {
+.app {
   font-family: "Courier New", Courier, monospace;
 }
 </style>

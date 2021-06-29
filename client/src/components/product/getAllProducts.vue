@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <ApolloQuery :query="require('../../graphql/getAllProducts.gql')">
       <template v-slot="{ result: { loading, error, data } }">
         <div v-if="data" class="result apollo">
@@ -8,9 +8,9 @@
             :key="product.id"
             class="productWrapper"
           >
-            <div id="name">{{ product.name }}</div>
-            <div id="type">{{ product.type }}</div>
-            <div id="size">{{ product.size }}</div>
+            <div id="name">Name: {{ product.name }}</div>
+            <div id="type">Type: {{ product.type }}</div>
+            <div id="size">Size: {{ product.size }}</div>
           </div>
         </div>
         <div v-else-if="loading" class="loading apollo">Loading...</div>

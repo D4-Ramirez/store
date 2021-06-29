@@ -1,0 +1,5 @@
+mutation($type: String!, $name: String!, $size: Int!) {
+  createProduct(input: { type: $type, name: $name, size: $size }) {
+    _id
+  }
+}
