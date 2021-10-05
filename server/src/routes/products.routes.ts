@@ -1,29 +1,16 @@
-import express, { Router, Request, Response } from "express";
-import Product from "../models/products.model"
+import express, { Router } from "express";
+import {
+  readProduct,
+  saveProduct,
+  updateProduct,
+  deleteProduct,
+} from "../controllers/products.controller";
 
 const router: Router = express();
 
-router.get("/products", async (req: Request, res: Response) => {
-  const products = await Product.find();
-  res.json(products);
-});
-
-router.post("/products", async (req: Request, res: Response) => {
-  const product = new Product(req.body);
-  await product.save();
-  res.json("👍 Done");
-});
-
-router.delete("/products/:id", async (req: Request, res: Response) => {
-  await Product.findByIdAndDelete(req.params.id)
-  res.json("👍 Deleted");  
-})
-
-router.put("/products/:id", async (req: Request, res: Response) =>{
-  await Product.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
-  res.json(req.body);
-})
+router.get("/products", readProduct);
+router.post("/products", saveProduct);
+router.delete("/products/:id", deleteProduct);
+router.put("/products/:id", updateProduct);
 
 module.exports = router;
