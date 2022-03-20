@@ -6,6 +6,7 @@ export async function createProduct(req: Request, res: Response) {
   await product.save();
   res.json("👍 Saved");
 }
+
 export async function readProducts(req: Request, res: Response) {
   const products = await Product.find();
   res.json(products);
