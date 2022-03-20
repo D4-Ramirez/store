@@ -1,9 +1,11 @@
 <template>
-  <div id="text">A tope 🔥</div>
+  <div className="to-blue-800">A tope 🔥</div>
 </template>
 
-<style>
-#text {
-  color: lightblue;
-}
-</style>
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "App",
+});
+</script>

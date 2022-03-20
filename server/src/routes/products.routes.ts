@@ -1,16 +1,16 @@
 import express, { Router } from "express";
 import {
-  readProducts,
-  saveProduct,
+  createProduct,
   updateProduct,
+  readProducts,
   deleteProduct,
 } from "../controllers/products.controller";
 
 const router: Router = express();
 
+router.post("/products", createProduct);
 router.get("/products", readProducts);
-router.post("/products", saveProduct);
-router.delete("/products/:id", deleteProduct);
 router.put("/products/:id", updateProduct);
+router.delete("/products/:id", deleteProduct);
 
 module.exports = router;
