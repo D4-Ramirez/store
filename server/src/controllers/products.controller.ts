@@ -7,9 +7,14 @@ export async function createProduct(req: Request, res: Response) {
   res.json("👍 Saved");
 }
 
-export async function readProducts(req: Request, res: Response) {
+export async function getAllProducts(req: Request, res: Response) {
   const products = await Product.find();
   res.json(products);
+}
+
+export async function findProductById(req: Request, res: Response) {
+  const product = await Product.findById(req.params.id);
+  res.json(product);
 }
 
 export async function updateProduct(req: Request, res: Response) {
